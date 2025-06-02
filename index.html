@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pita Way Employee Workshop Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        /* Header Styles */
+        .header {
+            background-image: url('images/subbackground.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(211, 47, 47, 0.8);
+            z-index: 1;
+        }
+
+        .header-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            flex-grow: 1;
+            text-align: center;
+            margin: 0 1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .intro-section {
+            background-color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #ff0000;
+        }
+
+        .intro-section h1 {
+            color: #000000;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Form Container */
+        .form-container {
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-wrapper {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(60, 60, 60, 0.8);
+            z-index: 1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-message {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            color: white;
+            overflow: hidden;
+        }
+
+        .social-icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .social-icon.tiktok {
+            background: #000;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .intro-section h1 {
+                font-size: 2rem;
+            }
+
+            .intro-section p {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                margin: 1rem auto;
+                border-radius: 0;
+            }
+
+            .intro-section,
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .footer-message {
+                font-size: 1rem;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .header-title {
+                font-size: 1.3rem;
+                text-align: center;
+                margin: 0;
+            }
+
+            .intro-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro-section,
+            .form-container {
+                padding: 1rem;
+            }
+
+            iframe {
+                min-height: 3000px; /* Increased for mobile */
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Ensure iframe responsiveness */
+        .responsive-iframe {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 550%; /* Increased height ratio */
+        }
+
+        .responsive-iframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 3500px; /* Increased minimum height */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <img src="images/logo.png" alt="Pita Way Logo" class="logo">
+            <h1 class="header-title">Pita Way Workshops</h1>
+            <div style="width: 50px;"></div> <!-- Spacer for centering -->
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <h1>Employee Workshop Sign-up</h1>
+            <p>Sign-up for corporate workshops with the Director of Training. All store managers from our corporate locations are invited to participate in these professional development opportunities.</p>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-container">
+            <div class="form-wrapper">
+                <div class="responsive-iframe">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSf5_ZYSLmiYYyA6UzCTMaoIzTun-TMzyT_rsGAjHZcTsXR4Dw/viewform?embedded=true" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                        <div class="loading">Loading workshop signup form...</div>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-message">Thank You for being part of the Pita Way family!</p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@pitaway?lang=en" class="social-icon tiktok" target="_blank" rel="noopener noreferrer">
+                    <img src="images/tiktok-logo.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/pitaway/?hl=en" class="social-icon instagram" target="_blank" rel="noopener noreferrer">
+                    <img src="images/instagram-logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/PitaWayMI/" class="social-icon facebook" target="_blank" rel="noopener noreferrer">
+                    <img src="images/facebook-logo.png" alt="Facebook">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
